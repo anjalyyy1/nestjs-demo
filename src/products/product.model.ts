@@ -1,21 +1,23 @@
-export class Product {
-  //   id: string;
-  //   title: string;
-  //   description: string;
-  //   price: string;
-  //   constructor(id: string, title: string, description: string, price: string) {
-  //     this.id = id;
-  //     this.title = title;
-  //     this.description = description;
-  //     this.price = price;
-  //   }
+import * as mongoose from 'mongoose';
+import { Document } from 'mongoose';
 
-  // ======== nest js equivalent(just add accessor) ========
-
-  constructor(
-    public id: string,
-    public title: string,
-    public description: string,
-    public price: number,
-  ) {}
+export const ProductSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+});
+export interface Product extends Document {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
 }
